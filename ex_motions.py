@@ -14,3 +14,10 @@ class _vi_cmd_line_k(sublime_plugin.TextCommand):
         self.view.replace(edit, sublime.Region(0, self.view.size()), text)
         self.view.sel().clear()
         self.view.sel().add(sublime.Region(self.view.size()))
+
+
+# Sublime Text's modern plugin host skips private names unless exported.
+__all__ = [
+    '_vi_cmd_line_a',
+    '_vi_cmd_line_k',
+]

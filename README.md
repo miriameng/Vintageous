@@ -5,9 +5,55 @@
 <a href='http://www.pledgie.com/campaigns/19122'><img alt='Click here to lend your support to: Vintageous and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/19122.png?skin_name=chrome' border='0' /></a>
 
 
-**Vintageous** is a comprehensive vi/Vim emulation layer for Sublime Text 3.
+**Vintageous** is a comprehensive vi/Vim emulation layer for Sublime Text.
 
-Vintageous has been discontinued.
+### Sublime Text 4215 / Python 3.14 fork
+
+This fork targets Sublime Text 4205 and newer using `.python-version` set to
+`3.14`. There is no need to re-enable the deprecated Python 3.3 host.
+It explicitly exports Vintageous's private command classes for the modern
+plugin loader and preserves the command name used by `g_`.
+Logging lives in `vi/plugin_logging.py`, since Package Control removes the
+root `__init__.py` when installing an archive.
+
+To install and receive updates through Package Control:
+
+1. Run **Package Control: Add Repository** and enter
+   `https://github.com/miriameng/Vintageous/tree/master`.
+2. Run **Package Control: Install Package** and select **Vintageous**.
+3. Restart Sublime Text. Keep `Vintage` in `ignored_packages`.
+
+Remove any manual `Packages/Vintageous` checkout before switching to this
+method. When using this repository through Package Control, allow automatic
+updates; `auto_upgrade_ignore` is only needed for the manual archive method
+below.
+
+Build an installable archive with a local Python 3 interpreter:
+
+```sh
+python bin/builder.py --release release
+```
+
+The result is `dist/Vintageous.sublime-package`. In Sublime, choose
+**Preferences > Browse Packages**, go up one directory, and open
+**Installed Packages**. Back up the existing Vintageous archive outside that
+directory, replace it with the new archive, and restart Sublime. Keep `Vintage`
+in `ignored_packages`, but remove `Vintageous` if it is listed there.
+If Package Control manages Vintageous, add `Vintageous` to its
+`auto_upgrade_ignore` setting so an upstream update cannot replace this fork.
+
+Alternatively, place this checkout at `Packages/Vintageous` (the directory
+name is required by the plugin's imports). Avoid keeping a second extracted
+Vintageous copy elsewhere in Packages.
+
+For development, the existing in-editor test runner includes
+`tests/test_runtime_compatibility.py`, which checks command registration and
+basic editing through `press_key`. Tests require Sublime's API; they cannot
+run under a standalone Python interpreter.
+
+The installation instructions below describe the original upstream release.
+
+The original upstream Vintageous has been discontinued.
 
 The successor to Vintageous is Sublime Six.
 

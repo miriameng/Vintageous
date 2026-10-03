@@ -1,4 +1,4 @@
-from Vintageous import PluginLogger
+from Vintageous.vi.plugin_logging import PluginLogger
 
 import sublime
 

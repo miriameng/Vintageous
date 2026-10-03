@@ -186,3 +186,20 @@ class VintageousOpenConfigFile(sublime_plugin.WindowCommand):
                 pass
 
             self.window.open_file(path)
+
+
+# Sublime Text's modern plugin host skips private names unless exported.
+__all__ = [
+    '_vi_slash_on_parser_done',
+    '_vi_question_mark_on_parser_done',
+    'VintageStateTracker',
+    'ViMouseTracker',
+    'ViFocusRestorerEvent',
+    '_vi_adjust_carets',
+    'Sequence',
+    'ResetVintageous',
+    'ForceExitFromCommandMode',
+    'VintageousToggleCtrlKeys',
+    'ReloadVintageousSettings',
+    'VintageousOpenConfigFile',
+]

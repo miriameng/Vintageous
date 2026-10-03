@@ -7,10 +7,16 @@
 import sublime
 import sublime_plugin
 
-from Default.history_list import get_jump_history
-
-
 class _vi_add_to_jump_list(sublime_plugin.WindowCommand):
     def run(self):
-        get_jump_history(self.window.id()).push_selection(self.window.active_view())
-        hl = get_jump_history(self.window.id())
+        view = self.window.active_view()
+        if view is not None:
+            view.run_command('add_jump_record', {
+                'selection': [[region.a, region.b] for region in view.sel()]
+            })
+
+
+# Sublime Text's modern plugin host skips private names unless exported.
+__all__ = [
+    '_vi_add_to_jump_list',
+]

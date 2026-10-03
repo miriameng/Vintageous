@@ -1459,6 +1459,10 @@ class _vi_gk(ViMotionCommand):
 
 
 class _vi_g__(ViMotionCommand):
+    def name(self):
+        # Modern Sublime command-name conversion drops a trailing underscore.
+        return '_vi_g__'
+
     def run(self, count=1, mode=None):
         def f(view, s):
             if mode == modes.NORMAL:
@@ -2106,3 +2110,63 @@ class _vi_right_square_bracket(ViMotionCommand):
             return
 
         regions_transformer(self.view, move)
+
+
+# Sublime Text's modern plugin host skips private names unless exported.
+__all__ = [
+    '_vi_find_in_line',
+    '_vi_reverse_find_in_line',
+    '_vi_slash',
+    '_vi_slash_impl',
+    '_vi_l',
+    '_vi_h',
+    '_vi_j',
+    '_vi_k',
+    '_vi_k_select',
+    '_vi_gg',
+    '_vi_go_to_line',
+    '_vi_big_g',
+    '_vi_dollar',
+    '_vi_w',
+    '_vi_big_w',
+    '_vi_e',
+    '_vi_zero',
+    '_vi_right_brace',
+    '_vi_left_brace',
+    '_vi_percent',
+    '_vi_big_h',
+    '_vi_big_l',
+    '_vi_big_m',
+    '_vi_star',
+    '_vi_octothorp',
+    '_vi_b',
+    '_vi_big_b',
+    '_vi_underscore',
+    '_vi_hat',
+    '_vi_gj',
+    '_vi_gk',
+    '_vi_g__',
+    '_vi_ctrl_u',
+    '_vi_ctrl_d',
+    '_vi_pipe',
+    '_vi_ge',
+    '_vi_g_big_e',
+    '_vi_left_paren',
+    '_vi_right_paren',
+    '_vi_question_mark_impl',
+    '_vi_question_mark',
+    '_vi_repeat_buffer_search',
+    '_vi_n',
+    '_vi_big_n',
+    '_vi_big_e',
+    '_vi_ctrl_f',
+    '_vi_ctrl_b',
+    '_vi_enter',
+    '_vi_minus',
+    '_vi_shift_enter',
+    '_vi_select_text_object',
+    '_vi_go_to_symbol',
+    '_vi_gm',
+    '_vi_left_square_bracket',
+    '_vi_right_square_bracket',
+]

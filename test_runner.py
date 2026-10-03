@@ -147,3 +147,12 @@ class RunVintageousTests(sublime_plugin.WindowCommand):
         yield
         if path is not None:
             os.chdir(old_path)
+
+
+# Sublime Text's modern plugin host skips private names unless exported.
+__all__ = [
+    '__vi_tests_write_buffer',
+    '__vi_tests_erase_all',
+    'OutputPanel',
+    'RunVintageousTests',
+]

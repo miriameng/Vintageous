@@ -2,8 +2,8 @@ from collections import Counter
 
 import sublime
 
-from Vintageous import PluginLogger
-from Vintageous import NullPluginLogger
+from Vintageous.vi.plugin_logging import PluginLogger
+from Vintageous.vi.plugin_logging import NullPluginLogger
 from Vintageous.vi import cmd_base
 from Vintageous.vi import cmd_defs
 from Vintageous.vi import settings

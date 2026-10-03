@@ -2,6 +2,7 @@
 	"name": "Vintageous",
 	"include": {
 		"dev": [
+			[".python-version", []],
 			["*.*", ["*builder.py",
 					"*build.sh",
 					"*toplist.py",
@@ -29,6 +30,7 @@
 
 		],
 		"release": [
+			[".python-version", []],
 			["*.*", ["*builder.py",
 					 "*build.sh",
 					 "*toplist.py",
@@ -46,8 +48,7 @@
 			["./vi/*.py", []],
 			["./ex/*.py", []],
 			["./plugins/*.py", []],
-			["./ex/parsers/*.py", []],
-			["./ex/parsers/new/*.py", []],
+			["./ex/parser/*.py", []],
 			["./ex/plat/*.py", []]
 		]
 	}

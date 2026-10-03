@@ -14,7 +14,7 @@ from Vintageous.ex.ex_location import reverse_search
 class TestHelpers(unittest.TestCase):
     @unittest.skip('todo: revise tests')
     def testGetCorrectLineNumber(self):
-        self.assertEquals(get_line_nr(g_test_view, 1000), 19)
+        self.assertEqual(get_line_nr(g_test_view, 1000), 19)
 
     @unittest.skip('todo: revise tests')
     def testfind_bolAndEol(self):
@@ -26,7 +26,7 @@ class TestHelpers(unittest.TestCase):
         )
 
         for actual, expected in values:
-            self.assertEquals(actual, expected)
+            self.assertEqual(actual, expected)
 
 
 class TestSearchHelpers(unittest.TestCase):
@@ -38,7 +38,7 @@ class TestSearchHelpers(unittest.TestCase):
         )
 
         for actual, expected in values:
-            self.assertEquals(actual, expected)
+            self.assertEqual(actual, expected)
 
     @unittest.skip('todo: revise tests')
     def testSearchInRange(self):
@@ -49,7 +49,7 @@ class TestSearchHelpers(unittest.TestCase):
         )
 
         for actual, expected in values:
-            self.assertEquals(actual, expected)
+            self.assertEqual(actual, expected)
 
     @unittest.skip('todo: revise tests')
     def testFindLastMatch(self):
@@ -58,7 +58,7 @@ class TestSearchHelpers(unittest.TestCase):
         )
 
         for actual, expected in values:
-            self.assertEquals(actual, expected)
+            self.assertEqual(actual, expected)
 
     @unittest.skip('todo: revise tests')
     def testReverseSearch(self):
@@ -67,11 +67,11 @@ class TestSearchHelpers(unittest.TestCase):
         )
 
         for actual, expected in values:
-            self.assertEquals(actual, expected)
+            self.assertEqual(actual, expected)
 
     @unittest.skip('todo: revise tests')
     def testReverseSearchNonMatchesReturnCurrentLine(self):
-        self.assertEquals(g_test_view.rowcol(g_test_view.sel()[0].a)[0], 0)
+        self.assertEqual(g_test_view.rowcol(g_test_view.sel()[0].a)[0], 0)
         values = (
             (reverse_search(g_test_view, 'FOOBAR'), 1),
         )
@@ -87,7 +87,7 @@ class TestSearchHelpers(unittest.TestCase):
         )
 
         for actual, expected in values:
-            self.assertEquals(actual, expected)
+            self.assertEqual(actual, expected)
 
     def setUp(self):
         super().setUp()

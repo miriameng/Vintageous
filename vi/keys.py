@@ -1,6 +1,6 @@
 import re
 
-from Vintageous import PluginLogger
+from Vintageous.vi.plugin_logging import PluginLogger
 from Vintageous.vi.utils import modes
 from Vintageous.vi import cmd_base
 from Vintageous.plugins import plugins
